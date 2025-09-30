@@ -1,0 +1,13 @@
+.langswitch {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 12px;
+    background-color: white;
+    width: fit-content;
+    select {
+        outline: none;
+        border: none;
+        background: transparent;
+    }
+}

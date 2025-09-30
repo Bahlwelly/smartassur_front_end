@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'variables.scss' as *;
+@import "primeicons/primeicons.css";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100dvh;
+    background-color: $grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* styles.css */
+body[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+body[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* RTL-specific styles */
+[dir="rtl"] .text-left { text-align: right !important; }
+[dir="rtl"] .text-right { text-align: left !important; }
+[dir="rtl"] .float-left { float: right !important; }
+[dir="rtl"] .float-right { float: left !important; }
+[dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }

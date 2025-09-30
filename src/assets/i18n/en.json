@@ -1,0 +1,20 @@
+{
+        "login_form" : {
+        "login" : "Sign in",
+        "question" : "Are you new ? ... ",
+        "register" : "Create an acount",
+        "phone" : "Phone Number",
+        "password" : "Password"
+    },
+    "register_form" : {
+        "first_name" : "First name",
+        "last_name" : "Last name",
+        "register" : "Create an acount",
+        "question" : "Do you have an account ? ...",
+        "login" : "Sign in",
+        "phone" : "Phone Number",
+        "password" : "Password",
+        "password2" : "Confirm password",
+        "email" : "email"
+    }
+}

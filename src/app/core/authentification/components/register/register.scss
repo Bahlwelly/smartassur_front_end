@@ -1,0 +1,40 @@
+@use '../../../../../mixins.scss' as m;
+@use '../../../../../variables.scss' as v;
+
+app-language-switcher {
+    position: absolute;
+    top: 1.5rem;
+}
+
+form {
+    @include m.form;
+
+    .input_field {
+        position: relative;
+
+        i {
+            @include m.icon('front');
+        }
+        .pi-eye , .pi-eye-slash {
+            @include m.icon('after');
+        }
+
+        &:focus-within i {
+            color: v.$green;
+        }
+
+        input {
+            @include m.input;
+        }
+
+    }
+    button {
+        margin-top: 1rem;
+        @include m.button('primary')
+    }
+
+    span {
+        @include m.form_link
+    }
+}
+

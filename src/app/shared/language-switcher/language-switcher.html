@@ -1,0 +1,8 @@
+<div class="langswitch">
+    <i class="pi pi-globe"></i>
+    <select (change)="useLang($event)">
+        <option [selected]="currentLang == 'en'" value="en">English</option>
+        <option [selected]="currentLang == 'fr'" value="fr">Français</option>
+        <option [selected]="currentLang == 'ar'" value="ar">العربية</option>
+    </select>
+</div>
