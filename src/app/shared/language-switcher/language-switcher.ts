@@ -16,5 +16,6 @@ export class LanguageSwitcher {
 
     localStorage.setItem('userLang', lang);
     this.translate.use(lang);
+    location.reload();
   }
 }

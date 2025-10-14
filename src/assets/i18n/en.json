@@ -15,6 +15,17 @@
         "phone" : "Phone Number",
         "password" : "Password",
         "password2" : "Confirm password",
-        "email" : "email"
+        "email" : "email",
+        "role" : "role",
+        "role_question" : "Choose your the type of youre account please",
+           "company_question" : "Please select the company you manage ",
+        "client" : "Client",
+        "manager" : "Manager",
+        "form_title" : "Personal information"
+    },
+
+    "alert_conf" : {
+        "confirm" : "Confirm",
+        "cancel" : "Cancel"
     }
 }

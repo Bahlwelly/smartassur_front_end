@@ -5,5 +5,6 @@ export interface RegisterData {
     email : string;
     password : string;
     password2 : string;
-    profile : string;
+    profile : string | null;
+    role : 'MANAGER' | 'CLIENT';
 }

@@ -1,0 +1,76 @@
+@use '../../../variables' as v;
+@use '../../../mixins' as m;
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #44444483;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+
+    .alert {
+        padding: 40px 25px;
+        border-radius: 10px;
+        transform: translateY(-20%);
+        background: v.$white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .icon i {
+            font-size: 45px;
+        }
+
+        .icon .pi-times-circle {
+            color: v.$red;
+        }
+
+        .icon .pi-check-circle {
+            color: v.$green;
+        }
+
+        .icon .pi-info-circle {
+            color: v.$blue;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+
+            p {
+                text-align: center;
+                font-size: small;
+            }
+
+            .buttons {
+                width: 90%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .conf {
+                    @include m.button('primary');
+                }
+                .canc {
+                    @include m.button('danger');
+                }
+            }
+        }
+    }
+}

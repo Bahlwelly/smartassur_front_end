@@ -15,6 +15,16 @@
         "phone" : "Numero de telephone",
         "password" : "Mot de pass",
         "password2" : "Confirmer le mot de pass",
-        "email" : "Courriel"
+        "email" : "Courriel",
+        "role": "Rôle",
+        "role_question": "Veuillez choisir le type de votre compte, s'il vous plaît",
+        "client": "Client",
+        "manager": "Gestionnaire",
+        "form_title" : "Informations personelles"
+    },
+
+    "alert_conf" : {
+        "confirm" : "Confirmer",
+        "cancel" : "Anuller"
     }
 }

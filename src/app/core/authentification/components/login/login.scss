@@ -20,11 +20,6 @@ form {
             @include m.icon('front');
         }
         
-        [dir='rtl'] i {
-            left: auto;
-            right: 20rem;
-        }
-        
         .pi-eye, .pi-eye-slash {
             @include m.icon('after');
             cursor: pointer;
@@ -40,6 +35,7 @@ form {
     }
 
     button {
+        width: 100%;
         @include m.button('primary')
     }
 

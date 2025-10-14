@@ -36,3 +36,15 @@ body[dir="ltr"] {
 [dir="rtl"] .float-right { float: left !important; }
 [dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
 [dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+
+i.icon {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+[dir="rtl"] i.icon {
+  left: 2rem;
+  right: auto;
+}

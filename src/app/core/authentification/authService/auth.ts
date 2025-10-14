@@ -9,8 +9,8 @@ import { RegisterData } from '../interfaces/registerData';
 })
 export class Auth {
     private http = inject(HttpClient);
-    private loginapi = 'http://localhost:8000/auth/login/';
-    private registerapi = 'http://localhost:8000/auth/register/';
+    private loginapi = 'http://192.168.100.83:8000/auth/login/';
+    private registerapi = 'http://192.168.100.83:8000/auth/register/';
 
     login (telephone : string, password : string) : Observable<LoginResponce> {
       return this.http.post<LoginResponce>(`${this.loginapi}`, {telephone : telephone, password : password})

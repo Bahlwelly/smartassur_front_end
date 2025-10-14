@@ -13,19 +13,22 @@
 
 @mixin icon ($position) {
     position: absolute;
-    transform: translate(50%, -50%);
+    top: 50%;
+    transform: translateY(-50%);
     transition: all 0.3s ease-in-out;
     
     @if ($position == 'front') {
-        top: 50%;
-        @at-root [dir='rtl'] #{&} {
-            right: 2rem;
-            left: 2rem;
-        }
+        // left: 0.5rem;
+        // [dir='rtl'] & {
+        //     left: auto;
+        //     right: 12rem;
+        // }
+
+        inset-inline-start: 0.5rem;
     }
     @else {
-        top:  50%;
-        right: 1rem;
+        width: 6%;
+        inset-inline-start: 16.5rem;
     }
 }
 
@@ -46,22 +49,40 @@
 
 
 @mixin button ($type) {
-    padding: 12px 20px;
+    padding: 10px 20px;
     border: none;
     font-size: 15px;
     font-weight:500;
     border-radius: 5px;
-    letter-spacing: 0.1rem;
+    // letter-spacing: 0.1rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     
     @if($type == 'primary') {
         color: v.$white;
         background-color: v.$green;
-        width: 100%;
         &:hover {
             background-color: v.$dark_green;
         }
+    }
+    @if ($type == 'secondary') {
+        color: v.$green;
+        background-color: v.$grey;
+        &:hover {
+            color: v.$white;
+            background-color: v.$green;
+        }
+    }
+    @if ($type == 'danger') {
+        color: v.$white;
+        border: 1px solid v.$white;
+        background-color: v.$red;
+        &:hover {
+            color : v.$red;
+            border: 1px solid v.$red;
+            background-color: v.$white;
+        }
+
     }
 }
 

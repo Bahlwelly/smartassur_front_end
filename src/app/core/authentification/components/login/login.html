@@ -1,7 +1,8 @@
+<app-alert></app-alert>
 <app-language-switcher></app-language-switcher>
 
 
-<form [formGroup]="loginForm" class="bg-red" (ngSubmit)="submit()">
+<form [formGroup]="loginForm" class="bg-red" (submit)="submit()">
     <img src="assets/svg/logo.svg" width="120px" height="120px" alt="">
 
     <div class="input_field">

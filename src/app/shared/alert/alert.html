@@ -1,0 +1,34 @@
+@if (show) {
+    <main>
+        <div class="alert">
+            @if (closable) {
+                <span (click)="close()" class="close">
+                    <i class="pi pi-times"></i>
+                </span>
+            }
+            <div class="icon">
+                @if (type == 'error') {
+                    <i class="pi pi-times-circle"></i>
+                }
+                @if (type == 'success') {
+                    <i class="pi pi-check-circle"></i>
+                }
+                @if (type == 'info') {
+                    <i class="pi pi-info-circle"></i>
+                }
+            </div>
+
+            <div class="content">
+                <h3 [style.color]="type === 'error' ? '#FE5C73' : type == 'success' ? '#8CC640' : '#5f91e7'"> {{ title }} </h3>
+                <p> {{ message }} </p>
+
+                @if (confirmation) {
+                    <div class="buttons">
+                        <button class="conf" (click)="confirm()"> {{ 'alert_conf.confirm' | translate }} </button>
+                        <button class="canc" (click)="close()"> {{ 'alert_conf.cancel' | translate }} </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </main>   
+}
