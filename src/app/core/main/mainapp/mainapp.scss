@@ -1,0 +1,43 @@
+@use '../../../../mixins.scss' as m;
+@use '../../../../variables.scss' as v;
+
+.topnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+
+    img {
+        width: 40px;
+    }
+
+    i {
+        font-size: 22px;
+    }
+}
+
+app-sidebar {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    z-index: 10000;
+}
+
+@media (min-width: 1250px) and (max-width : 1440px) {
+    .topnav {
+        img {
+            display: none;
+        }
+        .pi-bell {
+            position: absolute;
+            z-index: 1000000;
+            top: 45px;
+            inset-inline-start: 275px;
+        }
+    }
+
+}

@@ -249,7 +249,7 @@ export class Register {
 
         setTimeout(() => {
           this.router.navigate(['/']);
-        }, 5000);
+        }, 2000);
       }
           
         },

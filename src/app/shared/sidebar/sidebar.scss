@@ -1,0 +1,160 @@
+@use '../../../variables.scss' as v;
+@use '../../../mixins.scss' as m;
+
+@keyframes slide_in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide_in_rtl {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide_out {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide_out_rtl {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.slide_in {
+    animation: slide_in .3s ease-out forwards;
+}
+
+.slide_in_rtl {
+    animation: slide_in_rtl .3s ease-out forwards;
+}
+
+.slide_out {
+    animation: slide_out .3s ease-in forwards;
+}
+
+.slide_out_rtl {
+    animation: slide_out_rtl .3s ease-in forwards;
+}
+
+main {
+    background: v.$white;
+    height: 100dvh;
+    width: 16.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+
+    .pi-times {
+        position: absolute;
+        top: 20px;
+        inset-inline-end: 20px;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 50px 25px;
+
+        .initials {
+            color: v.$white;
+            background: v.$dark_green;
+            text-align: center;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 25px;
+        }
+
+        .info {
+            .name {
+                font-size: larger;
+            }
+            .phone {
+                font-size: small;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        width: 125%;
+        // position: relative;
+        li {
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 80%;
+            transition: all 0.2s ease-in-out;
+            
+            &:last-child {
+                position: absolute;
+                bottom: 40px;
+                justify-content: center;
+                background-color: v.$red;
+                color: v.$white;
+                font-weight: 600;
+                width: 100%;
+                
+                i {
+                    font-weight: 600;
+                }
+            }
+
+            app-language-switcher {
+                margin-left: -5px;
+            }
+        }
+
+        .selected {
+            font-weight: 600;
+            color: v.$white;
+            background: v.$green;
+            i {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@media (min-width: 1250px) and (max-width : 1440px) {
+    main {
+        width: 20rem;
+        .profile {
+            padding: 20px;
+        }
+        ul {
+            li {
+                cursor: pointer;
+                &:hover {
+                    background: v.$light_green;
+                }
+                &:last-child {
+                    bottom: 0;
+                }
+                &:has(app-language-switcher):hover {
+                    background: v.$white;
+                }
+            }
+        }
+    }
+}

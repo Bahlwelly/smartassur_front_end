@@ -1,15 +1,16 @@
 import { Component, inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../authService/auth';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcher } from '../../../../shared/language-switcher/language-switcher';
 import { Alert } from '../../../../shared/alert/alert';
+import { LoginResponce } from '../../interfaces/login-responce';
 
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterLink, TranslateModule, TranslatePipe, LanguageSwitcher, Alert],
+  imports: [ReactiveFormsModule, RouterLink, TranslateModule, TranslatePipe, LanguageSwitcher, Alert, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -32,6 +33,35 @@ export class Login {
     this.showPassword = !this.showPassword;
   }
 
+  rm! : boolean;
+  storeUser (responce : LoginResponce) {
+    console.log(this.rm);
+    
+    if (this.rm) {
+      sessionStorage.removeItem('connectedUser');
+      sessionStorage.removeItem('refresh_token');
+      sessionStorage.removeItem('access_token');
+
+      localStorage.setItem('connectedUser', responce.user.toString());
+      localStorage.setItem('refresh_token', responce.refresh_token.toString());
+      localStorage.setItem('access_token', responce.access_token.toString());
+
+      console.log('the connected user is saved in the local storage');
+    }
+    else {
+      localStorage.removeItem('connectedUser');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('access_token');
+
+      sessionStorage.setItem('connectedUser', responce.user.toString());
+      sessionStorage.setItem('refresh_token', responce.refresh_token.toString());
+      sessionStorage.setItem('access_token', responce.access_token.toString());
+
+      console.log('the connected user is saved in the session storage');
+    }
+  }
+
+
   @ViewChild(Alert) alert! : Alert;
   preferedLang = localStorage.getItem('userLang') || 'en';
 
@@ -47,7 +77,7 @@ export class Login {
         next : (responce) => {
               this.router.navigate(['/main']);
               console.log(responce);
-              console.log("Router status :", this.router.config);
+              this.storeUser(responce)
             },
             error : (err) => {
                 if (this.preferedLang === 'en') {

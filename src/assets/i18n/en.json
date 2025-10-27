@@ -4,7 +4,8 @@
         "question" : "Are you new ? ... ",
         "register" : "Create an acount",
         "phone" : "Phone Number",
-        "password" : "Password"
+        "password" : "Password",
+        "remeberMe" : "Keep me signed in."
     },
     "register_form" : {
         "first_name" : "First name",
@@ -27,5 +28,25 @@
     "alert_conf" : {
         "confirm" : "Confirm",
         "cancel" : "Cancel"
+    },
+    "sidebar" : {
+        "dashboard" : "Dashboard",
+        "contracts" : "My contracts",
+        "companies" : "Companies",
+        "support" : "Support",
+        "logout" : "logout"
+    },
+    "dash" : {
+        "dash" : "Dashboard",
+        "ac" : "Active Contracts",
+        "ex" : "Expired Contracts",
+        "uc" : "Updated Contracts",
+        "sec" : "Contracts Expiring Soon",
+        "contracts" : "Contracts",
+        "comp" : "Company",
+        "type" : "Type",
+        "end_date" : "End Date",
+        "status" : "status",
+        "anc" : "Add a New Contract" 
     }
 }

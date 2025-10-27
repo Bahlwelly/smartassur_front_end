@@ -4,11 +4,13 @@
 app-language-switcher {
     position: absolute;
     top: 2.5rem;
+    inset-inline-start: 40px;
+    box-shadow: 1px 2px 10px #c0c0c0;
 }
 
 form {
     @include m.form;
-
+    position: relative;
     img {
         margin-bottom: 2rem;
     }
@@ -34,7 +36,19 @@ form {
         }
     }
 
+    .rememberMe {
+        position: absolute;
+        inset-inline-start: 20px;
+        bottom: 150px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 15px;
+        accent-color: v.$green;
+    }
+
     button {
+        margin-top: 40px;
         width: 100%;
         @include m.button('primary')
     }

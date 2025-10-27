@@ -1,5 +1,5 @@
 export interface LoginResponce {
-    token : string;
-    refresh : string;
-    id : number;
+    refresh_token : string;
+    access_token : string;
+    user : number;
 }

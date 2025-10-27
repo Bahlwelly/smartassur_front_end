@@ -3,14 +3,14 @@
 
 app-language-switcher {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 2.5rem;
+    inset-inline-start: 40px;
+    box-shadow: 1px 2px 10px #c0c0c0;
 }
 
 .main {
     height: 100dvh;
     width: 100%;
-    padding-top: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;

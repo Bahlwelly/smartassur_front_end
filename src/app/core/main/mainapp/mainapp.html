@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+ <app-alert></app-alert>
+<div class="topnav">
+    <i class="pi pi-bars" (click)="sidebar.toggleSidebar(true)"></i>
+    <img src="../../../../assets/svg/logo.svg" alt="">
+    <i class="pi pi-bell"></i>
+</div>
+<app-sidebar (logout)="showConfirmation()"></app-sidebar>
+<main [style.padding-left]="isBigScreen ? (lang === 'ar' ? '0' : '12rem') : '0'" [style.padding-right]="isBigScreen ? (lang === 'ar' ? '12rem' : '0') : '0'">
+    <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,29 @@
+@if (showSidebar) {
+    <main [class]="isOpen? (dir === 'ltr' ? 'slide_in' : 'slide_in_rtl') : (dir === 'ltr' ? 'slide_out' : 'slide_out_rtl')">
+        @if (isBigScreen) {
+            <i class="pi pi-times" (click)="toggleSidebar(false)"></i>
+        }
+        <div class="profile">
+            @if (connectedUser.profile) {
+                <img src="{{ connectedUser.profile}}" alt="">
+            }
+            @else {
+                <p class="initials"> {{ connectedUser.first_name[0].toUpperCase() }}{{ connectedUser.last_name[0].toUpperCase() }} </p>
+            }
+            <div class="info">
+                <p class="name"> {{ connectedUser.first_name }} {{ connectedUser.last_name }} </p>
+                <p class="phone"> {{ connectedUser.telephone }} </p>
+            </div>
+        </div>
+    
+        <ul>
+            <li (click) = "switchSelection('dash')" [class.selected]="selected==='dash'"> <i class="pi pi-table"></i> {{ 'sidebar.dashboard' | translate }} </li>
+            <li (click) = "switchSelection('contracts')" [class.selected]="selected==='contracts'"> <i class="pi pi-file"></i> {{ 'sidebar.contracts' | translate }} </li>
+            <li (click) = "switchSelection('companies')" [class.selected]="selected==='companies'"> <i class="pi pi-building"></i> {{ 'sidebar.companies' | translate }} </li>
+            <li (click) = "switchSelection('support')" [class.selected]="selected==='support'"> <i class="pi pi-question-circle"></i> {{ 'sidebar.support' | translate }} </li>
+            <li><app-language-switcher></app-language-switcher></li>
+            <li (click)="onLogout()"> <i class="pi pi-sign-out"></i> {{ 'sidebar.logout' | translate }} </li>
+        </ul>
+    </main>
+}
+

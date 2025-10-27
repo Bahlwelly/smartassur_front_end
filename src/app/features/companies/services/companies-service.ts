@@ -8,7 +8,7 @@ import { Company } from '../interfaces/company';
 })
 export class CompaniesService {
     private http = inject(HttpClient);
-    private companiesAPI = 'http://localhost:8000/corps/';
+    private companiesAPI = 'http://192.168.100.80:8000/corps/';
 
     getAllCompanies () : Observable<Company[]> {
       return this.http.get<Company[]>(this.companiesAPI);

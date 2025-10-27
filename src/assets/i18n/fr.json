@@ -4,7 +4,8 @@
         "question" : "Etes vous nouveax ? ... ",
         "register" : "Cree un compt",
         "phone" : "Numero de telephone",
-        "password" : "Mot de pass"
+        "password" : "Mot de pass",
+        "remeberMe" : "Rester connecté"
     },
     "register_form" : {
         "first_name" : "Prénom",
@@ -26,5 +27,26 @@
     "alert_conf" : {
         "confirm" : "Confirmer",
         "cancel" : "Anuller"
+    },
+
+    "sidebar" : {
+        "dashboard": "Tableau de bord",
+        "contracts": "Mes contrats",
+        "companies": "Compagnies",
+        "support": "Assistance",
+        "logout": "Déconnexion"
+    },
+    "dash": {
+        "dash": "Tableau de bord",
+        "ac": "Contrats actifs",
+        "ex": "Contrats expirés",
+        "uc": "Contrats mis à jour",
+        "sec": "Contrats expirant bientôt",
+        "contracts": "Contrats",
+        "comp": "Entreprise",
+        "type": "Type",
+        "end_date": "Date de fin",
+        "status": "Statut",
+        "anc": "Ajouter un nouveau contrat"
     }
 }

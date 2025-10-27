@@ -1,0 +1,188 @@
+@use '../../../../mixins.scss' as m;
+@use '../../../../variables.scss' as v;
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    gap: 40px;
+    margin-top: 60px;
+    position: relative;
+    padding-top: 70px;
+
+    h2 {
+        position: absolute;
+        top: -1px;
+        inset-inline-start: 20px;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        .card {
+            border: 1px solid v.$dark_grey;
+            padding: 7px;
+            border-radius: 5px;
+            text-align: center;
+            background: v.$white;
+            .number {
+                font-weight: 600;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .name {
+                font-size: small;
+            }
+        }
+    }
+
+    .rm {
+        margin-right: -16px;
+    }
+
+    .lm {
+        margin-left: -16px;
+    }
+    
+    .contracts {
+        border: 1px solid v.$dark_grey;
+        border-radius: 5px;
+        padding: 10px;
+        width: 110%;
+        margin-top: 10px;
+        height: 260px;
+        overflow: auto;
+        background: v.$white;
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            tr { 
+                width: 100%;
+                border-collapse: collapse;
+                box-shadow: inset 0 -1px v.$dark_grey;
+                
+                &:last-child {
+                    box-shadow: none;
+                }
+                td {
+                    padding: 16px  6px;
+                    text-align: center;
+                    font-size: small;
+
+                    img {
+                        width: 25px;
+                        object-fit: fill;
+                    }
+
+                    .active {
+                        background: v.$green;
+                        padding: 5px;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        color: v.$white;
+                    }
+                    .canceled {
+                        background: v.$yellow;
+                        padding: 5px;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        color: v.$white;
+                    }
+                    .pending {
+                        background: v.$blue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        color: v.$white;
+                    }
+                    .expired {
+                        background: v.$red;
+                        padding: 5px;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        color: v.$white;
+                    }
+                }
+                .ftd {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+            .th {
+                font-size: small;
+                text-align: center;
+                color: v.$black;
+            }
+        }
+    }
+
+    button {
+        padding: 13px;
+        border: none;
+        background: v.$green;
+        border-radius: 5px;
+        color: v.$white;
+    }
+}
+
+
+@media (min-width: 1250px) and (max-width: 1440px) {
+    main {
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        // width: 100%;
+        // background-color: red;
+
+        h2 {
+            top: -50px;
+            inset-inline-start: 2rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .card {
+                .number {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .contracts {
+            margin-top: 0;
+            height: 350px;
+            width: 600px;
+
+            table {
+                tr {
+                    td {
+                        font-size: medium;
+                    }
+                }
+            }
+        }
+
+        button {
+            position: absolute;
+            bottom: 20px;
+            width: 380px;
+            transition: all .3s ease;
+            font-size: medium;
+            cursor: pointer;
+            &:hover {
+                background: v.$dark_green;
+            }
+        }
+    }
+}

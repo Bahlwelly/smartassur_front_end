@@ -1,1 +1,53 @@
-<p>dashboard works!</p>
+<main>
+    <h2> {{ 'dash.dash' | translate }} </h2>
+
+    <div class="cards">
+        <div class="card">
+            <p class="number"> {{ ac }} </p>
+            <p class="name"> {{ 'dash.ac' | translate }} </p>
+        </div>
+
+        <div class="card">
+            <p class="number"> {{ uc }} </p>
+            <p class="name"> {{ 'dash.uc' | translate }} </p>
+        </div>
+
+        <div class="card">
+            <p class="number"> {{ sec }} </p>
+            <p class="name"> {{ 'dash.sec' | translate }} </p>
+        </div>
+
+        <div class="card">
+            <p class="number"> {{ ec }} </p>
+            <p class="name"> {{ 'dash.ex' | translate }} </p>
+        </div>
+    </div>
+
+    <div class="contracts" [class]="lang === 'ar' ? 'rm' : 'lm' ">
+        <h3> {{ 'dash.contracts' | translate}} </h3>
+        <table>
+            <tr class="th">
+                <td> {{ 'dash.comp' | translate }} </td>
+                <td> {{ 'dash.type' | translate }} </td>
+                <td> {{ 'dash.end_date' | translate }} </td>
+                <td> {{ 'dash.status' | translate }} </td>
+            </tr>
+
+            @for (con of contracts; track $index) {
+                <tr>
+                    <td>
+                        @if (companies[con.product]?.logo) {
+                            <img src="{{ companies[con.product]?.logo }}" alt=""> 
+                        }
+                        {{ companies[con.product]?.name }} 
+                    </td>
+                    <td>{{ translateTypes(con.type.toLowerCase()) }}</td>
+                    <td> {{ con.end_date }} </td>
+                    <td> <span [class]="con.status === 'active' ? 'active' : con.status === 'expired' ? 'expired' : con.status === 'pending' ? 'pending' : 'canceled'">{{ translateStatus(con.status) }}</span> </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <button [style.inset-inline-end]="isLargeScreen ?( lang === 'ar' ? '9rem' : '8.5rem') : 0"> {{ 'dash.anc' | translate }} </button>
+</main> 

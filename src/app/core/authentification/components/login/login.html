@@ -22,6 +22,11 @@
         }
     </div>
 
+    <div class="rememberMe">
+        <input type="checkbox" [(ngModel)]="rm" [ngModelOptions]="{standalone: true}" name="rm" id="rm">
+        <p> {{ 'login_form.remeberMe' | translate }} </p>
+    </div>
+
     <button type="submit"> {{ 'login_form.login' | translate }} </button>
 
     <span> {{ 'login_form.question' | translate }} <a routerLink="/register"> {{ 'login_form.register' | translate }} </a></span>
