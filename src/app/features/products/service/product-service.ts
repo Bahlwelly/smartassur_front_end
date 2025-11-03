@@ -9,14 +9,18 @@ import { Product } from '../product';
 })
 export class ProductService {
  private http = inject(HttpClient);
- private productCompanyApi = 'http://192.168.100.80:8000/api/products/company';
- private productDetailsApi = 'http://192.168.100.80:8000/api/products';
+ private productCompanyApi = 'http://192.168.100.178:8000/api/products/company';
+ private productsApi = 'http://192.168.100.178:8000/api/products';
  
  getProductCompany (id : number) : Observable<Company> {
   return this.http.get<Company>(`${this.productCompanyApi}/${id}`);
  }
 
  getProductDetails (id : number) : Observable<Product> {
-  return this.http.get<Product>(`${this.productDetailsApi}/${id}`);
+  return this.http.get<Product>(`${this.productsApi}/${id}`);
+ }
+
+ getProducts () : Observable<Product[]> {
+  return this.http.get<Product[]>(`${this.productsApi}`);
  }
 }

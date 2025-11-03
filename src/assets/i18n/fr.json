@@ -48,5 +48,28 @@
         "end_date": "Date de fin",
         "status": "Statut",
         "anc": "Ajouter un nouveau contrat"
+    },
+    "add_contract": {
+        "title": "Ajouter un nouveau contrat",
+        "type": "Type d'assurance",
+        "ac": "Contrats disponibles",
+        "desc": "Description",
+        "pr": "Prix",
+        "cat": "Catégorie",
+        "comp": "Entreprise",
+        "buy" : "Acheter",
+        "duration": "Durée du contrat",
+        "m": "Mois",
+        "y": "Année",
+        "confirm": "Confirmer"
+
+    },
+    "categories": {
+        "health": "Santé",
+        "vehicle": "Véhicule",
+        "property": "Propriété",
+        "travel": "Voyage",
+        "buisness": "Affaires",
+        "speciality": "Spéciale"
     }
 }

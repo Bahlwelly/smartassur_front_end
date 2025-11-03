@@ -6,7 +6,6 @@ export interface Contract {
     status : 'active' | 'pending' | 'expired' | 'canceled';
     viewed : boolean;
     singed_at : Date;
-    start_date : Date;
     end_date : Date;
     upated_at : Date;
 }

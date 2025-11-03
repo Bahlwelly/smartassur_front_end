@@ -1,1 +1,128 @@
-<p>add-new-contract works!</p>
+<main>
+    <h2> {{ 'add_contract.title' | translate }} </h2>
+    <div class="selectType">
+        <h4> {{ 'add_contract.type' | translate }} : </h4>
+        <div class="types"> 
+            <div class="options">
+                <div class="option" (click)="toggleOptions()">
+                    @if (selectedType === 'Health') {
+                        <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" width="20" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <path class="st0" d="M17,13V5c0-0.6-0.4-1-1-1h-1c-1.1,0-2-0.9-2-2v0"></path> <path class="st0" d="M3,13c0,3.9,3.1,7,7,7h0c3.9,0,7-3.1,7-7"></path> <path class="st0" d="M7,2L7,2c0,1.1-0.9,2-2,2H4C3.4,4,3,4.4,3,5v8"></path> <circle class="st0" cx="25" cy="9" r="4"></circle> <line class="st0" x1="25" y1="9" x2="25" y2="9"></line> <path class="st0" d="M10,20l0,1.5c0,4.1,3.4,7.5,7.5,7.5h0c4.1,0,7.5-3.4,7.5-7.5V13"></path> </g></svg>
+                    }
+                    @else if (selectedType === 'Vehicle') {
+                        <i class="pi pi-car"></i>
+                    }
+                    @else if (selectedType === 'Property') {
+                        <i class="pi pi-home"></i>
+                    }
+                    @else if (selectedType === 'Travel') {
+                        <svg viewBox="0 -15 150 150" width="20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="1.65"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M32.1695 51.6325L52.9098 38.2865C47.4327 31.8176 42.0802 25.4959 36.7271 19.1747C35.6678 17.9276 34.6183 16.6648 33.5354 15.4335C31.0629 12.6231 31.061 9.73912 33.561 7.01663C33.7822 6.77576 34.0329 6.56248 34.2724 6.33866C43.0864 -1.90297 41.1036 -0.914518 50.9861 2.60542C60.0179 5.82148 68.9153 9.52122 77.5874 13.6109C83.2818 16.2959 87.8263 16.9293 93.3396 12.6953C100.727 6.97629 109.429 3.19915 118.651 1.70881C126.18 0.495894 133.599 0.561555 141.032 2.67168C151.152 5.54316 150.717 15.8798 145.894 20.7794C143.253 23.3849 140.359 25.7211 137.255 27.7536C129.469 33.0004 121.606 38.1422 113.627 43.0936C112.467 43.7475 111.464 44.6488 110.691 45.7335C109.918 46.8182 109.393 48.0598 109.154 49.3701C105.307 66.5006 101.285 83.5949 97.2835 100.691C96.8177 102.485 96.262 104.253 95.6184 105.991C95.1661 107.345 94.441 108.592 93.4879 109.655C92.5348 110.718 91.3739 111.574 90.0769 112.171C85.3513 114.437 80.6092 116.673 75.7937 118.734C70.8114 120.868 68.215 118.943 68.53 113.527C69.322 99.9014 70.1192 86.2767 70.9217 72.6524C70.9657 71.8989 70.9276 71.1428 70.9276 69.8669C69.4744 70.6978 68.2917 71.3699 67.1136 72.0498C55.7695 78.6001 44.6951 85.7135 32.3605 90.3111C27.4728 92.1487 22.3829 93.395 17.1991 94.0234C12.1565 94.6095 8.24864 92.1201 6.05122 87.1975C3.77998 82.3445 2.37015 77.1333 1.88478 71.7971C1.31508 64.2906 0.756539 56.7828 0.312855 49.2684C0.0614772 45.0199 1.95764 42.2062 5.92848 40.2602C15.0332 35.7971 14.0165 36.4429 20.1395 41.7815C23.6791 44.8663 27.3166 47.8441 30.9199 50.8574C31.319 51.1428 31.7365 51.4018 32.1695 51.6325ZM75.734 110.665L76.5964 111.059C78.7656 110.064 80.8626 108.835 83.1204 108.127C86.9475 106.929 87.9648 103.993 88.8384 100.555C93.5863 81.865 98.4284 63.1983 103.364 44.5552C103.896 42.4911 104.839 40.5557 106.137 38.8651C107.435 37.1746 109.061 35.7637 110.918 34.7173C117.749 30.6277 124.313 26.0865 130.916 21.6241C134.079 19.487 137.167 17.2122 140.113 14.7864C142.6 12.7393 142.22 11.1765 139.207 10.1526C132.666 7.93416 125.949 7.58893 119.152 8.46055C110.366 9.58617 102.764 13.6634 95.4438 18.2945C75.1472 31.1373 54.8801 44.0269 34.6426 56.9633C31.0327 59.2644 30.4775 59.3071 27.27 56.3726C23.2407 52.6859 19.3053 48.8969 15.2905 45.1945C14.2285 44.2146 13.2296 42.558 11.4378 43.8096C9.60004 45.0941 6.60124 45.3999 6.92547 48.6902C7.96248 59.2099 8.5814 69.794 10.1921 80.2259C11.4535 88.3946 14.1301 89.5039 22.1072 87.1266C30.7577 84.5485 38.6929 80.432 46.3917 75.833C54.546 70.963 62.6072 65.9374 70.7248 61.005C74.2795 58.845 76.8983 60.0507 77.4772 64.1055C77.7578 65.7197 77.9038 67.3543 77.9137 68.9927C77.6551 79.1475 77.3295 89.2997 76.9895 99.452C76.9534 100.53 76.6423 101.598 76.5301 102.677C76.24 105.338 75.9952 108.003 75.7366 110.666L75.734 110.665ZM59.4482 34.1628L78.8824 21.7639C68.1811 15.7944 57.0284 10.6728 45.5267 6.44626C44.6852 6.14304 43.4421 5.95468 42.77 6.35701C40.6835 7.61062 38.7835 9.1734 37.5049 10.1087L48.3036 21.9496C51.88 25.8686 55.4557 29.7863 59.4482 34.1634V34.1628Z" fill="#000000"></path> </g></svg>
+                    }
+                    @else if (selectedType === 'Buisness') {
+                        <svg viewBox="0 0 24 24" width="18" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.37 2.15009L21.37 5.75006C21.72 5.89006 22 6.31006 22 6.68006V10.0001C22 10.5501 21.55 11.0001 21 11.0001H3C2.45 11.0001 2 10.5501 2 10.0001V6.68006C2 6.31006 2.28 5.89006 2.63 5.75006L11.63 2.15009C11.83 2.07009 12.17 2.07009 12.37 2.15009Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 22H2V19C2 18.45 2.45 18 3 18H21C21.55 18 22 18.45 22 19V22Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 22H23" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 8.5C12.8284 8.5 13.5 7.82843 13.5 7C13.5 6.17157 12.8284 5.5 12 5.5C11.1716 5.5 10.5 6.17157 10.5 7C10.5 7.82843 11.1716 8.5 12 8.5Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    }
+                    @else {
+                        <i class="pi pi-plus"></i>
+                    }
+                    {{ translateType(selectedType) }}
+                    <i class="pi pi-angle-down"></i>
+                </div>
+                @if (showOptions) {
+
+                    <div class="hidden">
+                        <div class="option" (click)="selectType('Health')">
+                            <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" width="20" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <path class="st0" d="M17,13V5c0-0.6-0.4-1-1-1h-1c-1.1,0-2-0.9-2-2v0"></path> <path class="st0" d="M3,13c0,3.9,3.1,7,7,7h0c3.9,0,7-3.1,7-7"></path> <path class="st0" d="M7,2L7,2c0,1.1-0.9,2-2,2H4C3.4,4,3,4.4,3,5v8"></path> <circle class="st0" cx="25" cy="9" r="4"></circle> <line class="st0" x1="25" y1="9" x2="25" y2="9"></line> <path class="st0" d="M10,20l0,1.5c0,4.1,3.4,7.5,7.5,7.5h0c4.1,0,7.5-3.4,7.5-7.5V13"></path> </g></svg>
+                            {{ 'categories.health' | translate }}
+                        </div>
+                        <div class="option" (click)="selectType('Vehicle')">
+                            <i class="pi pi-car"></i>
+                            {{ 'categories.vehicle' | translate }}
+                        </div>
+                        <div class="option" (click)="selectType('Property')">
+                            <i class="pi pi-home"></i>
+                            {{'categories.property' | translate}}
+                        </div>
+                        <div class="option" (click)="selectType('Travel')">
+                            <svg viewBox="0 -15 150 150" width="20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="1.65"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M32.1695 51.6325L52.9098 38.2865C47.4327 31.8176 42.0802 25.4959 36.7271 19.1747C35.6678 17.9276 34.6183 16.6648 33.5354 15.4335C31.0629 12.6231 31.061 9.73912 33.561 7.01663C33.7822 6.77576 34.0329 6.56248 34.2724 6.33866C43.0864 -1.90297 41.1036 -0.914518 50.9861 2.60542C60.0179 5.82148 68.9153 9.52122 77.5874 13.6109C83.2818 16.2959 87.8263 16.9293 93.3396 12.6953C100.727 6.97629 109.429 3.19915 118.651 1.70881C126.18 0.495894 133.599 0.561555 141.032 2.67168C151.152 5.54316 150.717 15.8798 145.894 20.7794C143.253 23.3849 140.359 25.7211 137.255 27.7536C129.469 33.0004 121.606 38.1422 113.627 43.0936C112.467 43.7475 111.464 44.6488 110.691 45.7335C109.918 46.8182 109.393 48.0598 109.154 49.3701C105.307 66.5006 101.285 83.5949 97.2835 100.691C96.8177 102.485 96.262 104.253 95.6184 105.991C95.1661 107.345 94.441 108.592 93.4879 109.655C92.5348 110.718 91.3739 111.574 90.0769 112.171C85.3513 114.437 80.6092 116.673 75.7937 118.734C70.8114 120.868 68.215 118.943 68.53 113.527C69.322 99.9014 70.1192 86.2767 70.9217 72.6524C70.9657 71.8989 70.9276 71.1428 70.9276 69.8669C69.4744 70.6978 68.2917 71.3699 67.1136 72.0498C55.7695 78.6001 44.6951 85.7135 32.3605 90.3111C27.4728 92.1487 22.3829 93.395 17.1991 94.0234C12.1565 94.6095 8.24864 92.1201 6.05122 87.1975C3.77998 82.3445 2.37015 77.1333 1.88478 71.7971C1.31508 64.2906 0.756539 56.7828 0.312855 49.2684C0.0614772 45.0199 1.95764 42.2062 5.92848 40.2602C15.0332 35.7971 14.0165 36.4429 20.1395 41.7815C23.6791 44.8663 27.3166 47.8441 30.9199 50.8574C31.319 51.1428 31.7365 51.4018 32.1695 51.6325ZM75.734 110.665L76.5964 111.059C78.7656 110.064 80.8626 108.835 83.1204 108.127C86.9475 106.929 87.9648 103.993 88.8384 100.555C93.5863 81.865 98.4284 63.1983 103.364 44.5552C103.896 42.4911 104.839 40.5557 106.137 38.8651C107.435 37.1746 109.061 35.7637 110.918 34.7173C117.749 30.6277 124.313 26.0865 130.916 21.6241C134.079 19.487 137.167 17.2122 140.113 14.7864C142.6 12.7393 142.22 11.1765 139.207 10.1526C132.666 7.93416 125.949 7.58893 119.152 8.46055C110.366 9.58617 102.764 13.6634 95.4438 18.2945C75.1472 31.1373 54.8801 44.0269 34.6426 56.9633C31.0327 59.2644 30.4775 59.3071 27.27 56.3726C23.2407 52.6859 19.3053 48.8969 15.2905 45.1945C14.2285 44.2146 13.2296 42.558 11.4378 43.8096C9.60004 45.0941 6.60124 45.3999 6.92547 48.6902C7.96248 59.2099 8.5814 69.794 10.1921 80.2259C11.4535 88.3946 14.1301 89.5039 22.1072 87.1266C30.7577 84.5485 38.6929 80.432 46.3917 75.833C54.546 70.963 62.6072 65.9374 70.7248 61.005C74.2795 58.845 76.8983 60.0507 77.4772 64.1055C77.7578 65.7197 77.9038 67.3543 77.9137 68.9927C77.6551 79.1475 77.3295 89.2997 76.9895 99.452C76.9534 100.53 76.6423 101.598 76.5301 102.677C76.24 105.338 75.9952 108.003 75.7366 110.666L75.734 110.665ZM59.4482 34.1628L78.8824 21.7639C68.1811 15.7944 57.0284 10.6728 45.5267 6.44626C44.6852 6.14304 43.4421 5.95468 42.77 6.35701C40.6835 7.61062 38.7835 9.1734 37.5049 10.1087L48.3036 21.9496C51.88 25.8686 55.4557 29.7863 59.4482 34.1634V34.1628Z" fill="#000000"></path> </g></svg>
+                            {{'categories.travel' | translate}}
+                        </div>
+                        <div class="option" (click)="selectType('Buisness')">
+                            <svg viewBox="0 0 24 24" width="18" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.37 2.15009L21.37 5.75006C21.72 5.89006 22 6.31006 22 6.68006V10.0001C22 10.5501 21.55 11.0001 21 11.0001H3C2.45 11.0001 2 10.5501 2 10.0001V6.68006C2 6.31006 2.28 5.89006 2.63 5.75006L11.63 2.15009C11.83 2.07009 12.17 2.07009 12.37 2.15009Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 22H2V19C2 18.45 2.45 18 3 18H21C21.55 18 22 18.45 22 19V22Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 18V11" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 22H23" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 8.5C12.8284 8.5 13.5 7.82843 13.5 7C13.5 6.17157 12.8284 5.5 12 5.5C11.1716 5.5 10.5 6.17157 10.5 7C10.5 7.82843 11.1716 8.5 12 8.5Z" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            {{ 'categories.buisness' | translate }}
+                        </div>
+                        <div class="option" (click)="selectType('Speciale')">
+                            <i class="pi pi-plus"></i>
+                            {{ 'categories.speciality' | translate }}
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="products">
+        <h3> {{ 'add_contract.ac' | translate }} </h3>
+        @for (prod of filterProducts(); track $index) {
+            <div class="prod">
+                <h4> 
+                     @if (lang === 'ar') {
+                            {{ prod.name_ar }}
+                        }
+                        @else if (lang === 'fr') {
+                            {{ prod.name_fr }}
+                        }
+                        @else  {
+                            {{ prod.name_en }}
+                        }    
+                </h4>
+                <div class="content">
+                    <p>
+                        <span [style.margin-right]="lang !== 'ar' ? '10px' : '2px'" [style.margin-left]="lang === 'ar' ? '10px' : '2px'"> {{ 'add_contract.desc' | translate }} </span>:
+                        @if (lang === 'ar') {
+                            {{ prod.description_ar }}
+                        }
+                        @else if (lang === 'fr') {
+                            {{ prod.description_fr }}
+                        }
+                        @else  {
+                            {{ prod.description_en }}
+                        }
+                    </p>
+                    <p><span [style.margin-right]="lang !== 'ar' ? '55px' : '2px'" [style.margin-left]="lang === 'ar' ? '15px' : '2px'">{{ 'add_contract.pr' | translate}}</span> : {{ prod.price }} </p>
+                    <p><span [style.margin-right]="lang !== 'ar' ? '30px' : '2px'" [style.margin-left]="lang === 'ar' ? '20px' : '2px'">{{ 'add_contract.cat' | translate }}</span> : {{ translateType(getCategory(prod.category)) }} </p>
+                    <p><span [style.margin-right]="lang !== 'ar' ? '30px' : '2px'" [style.margin-left]="lang === 'ar' ? '10px' : '2px'"> {{ 'add_contract.comp' | translate }} </span> : 
+                        @if (lang === 'ar') {
+                            {{ companies[prod.id].name_ar }}
+                        }
+                        @else if (lang === 'fr') {
+                            {{ companies[prod.id].name_fr }}
+                        }
+                        @else  {
+                            {{ companies[prod.id].name_en }}
+                        }
+                    </p>
+            
+                    <button (click)="selectProduct(prod.id)" > {{ 'add_contract.buy' | translate }} </button>
+                </div>
+            </div>
+        }
+    </div>
+</main>
+
+@if (showConfirmation) {
+    <div class="confirmation">
+        <div class="content">
+            <i class="pi pi-times" (click)="toggleConfirmation()"></i>
+            <p> {{ 'add_contract.duration' | translate }} : </p>
+            <div class="duration">
+                <input type="number" class="d_num" placeholder="number" [(ngModel)]="duration_num">
+                <select class="d_type" [(ngModel)]="duration_type">
+                    <option value="y">{{ 'add_contract.y' | translate }}</option>
+                    <option value="m"> {{ 'add_contract.m' | translate }} </option>
+                </select>
+            </div>
+            <button (click)="addContract()"> {{ 'add_contract.confirm' | translate }} </button>
+        </div>
+    </div>
+}

@@ -48,5 +48,27 @@
         "end_date" : "End Date",
         "status" : "status",
         "anc" : "Add a New Contract" 
+    },
+    "add_contract" : {
+        "title" : "Add A New Contract",
+        "type" : "Insurance Type",
+        "ac" : "Avalable Contracts",
+        "desc" : "Description",
+        "pr" : "Price",
+        "cat" : "Category",
+        "comp" : "Company",
+        "buy" : "Buy",
+        "duration" : "Contract duration",
+        "m" : "Month",
+        "y" : "Year",
+        "confirm" : "Confirm"
+    },
+    "categories" : {
+        "health" : "Health",
+        "vehicle" : "Vehicle",
+        "property" : "Property",
+        "travel" : "Travel",
+        "buisness" : "Buisness",
+        "speciality" : "Speciale"
     }
 }

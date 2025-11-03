@@ -39,7 +39,15 @@
                         @if (companies[con.product]?.logo) {
                             <img src="{{ companies[con.product]?.logo }}" alt=""> 
                         }
-                        {{ companies[con.product]?.name }} 
+                        @if (lang === 'ar') {
+                            {{ companies[con.product]?.name_ar }}
+                        }
+                        @else if (lang === 'fr') {
+                            {{ companies[con.product]?.name_fr }}
+                        }
+                        @else {
+                            {{ companies[con.product]?.name_original }}
+                        }
                     </td>
                     <td>{{ translateTypes(con.type.toLowerCase()) }}</td>
                     <td> {{ con.end_date }} </td>
@@ -49,5 +57,5 @@
         </table>
     </div>
 
-    <button [style.inset-inline-end]="isLargeScreen ?( lang === 'ar' ? '9rem' : '8.5rem') : 0"> {{ 'dash.anc' | translate }} </button>
+    <button [routerLink]="'/main/add/contract'" [style.inset-inline-end]="isLargeScreen ?( lang === 'ar' ? '9rem' : '8.5rem') : 0"> {{ 'dash.anc' | translate }} </button>
 </main> 

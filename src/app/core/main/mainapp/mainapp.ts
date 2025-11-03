@@ -23,10 +23,10 @@ export class Mainapp {
   private authService = inject(Auth)
   private router = inject(Router);
   @ViewChild (Alert) alert! : Alert; 
+  pl = localStorage.getItem('userLang');
   showConfirmation () {
-    let pl = localStorage.getItem('userLang');
-    let title = pl === 'en' ? "Are you sure ?" : pl === 'fr' ? "Etes vous sure ?" : "هل انت متأكد ؟";
-    let message = pl === 'en' ? "Are you sure you want to leav the app ?" : pl === 'fr' ? "Etes vous sure que vou voulez quitter l'application ?" : "هل انت متأكد من أنك تريد مغادرة التطبيق ؟"
+    let title = this.pl === 'en' ? "Are you sure ?" : this.pl === 'fr' ? "Etes vous sure ?" : "هل انت متأكد ؟";
+    let message = this.pl === 'en' ? "Are you sure you want to leav the app ?" : this.pl === 'fr' ? "Etes vous sure que vou voulez quitter l'apthis.plication ?" : "هل انت متأكد من أنك تريد مغادرة التطبيق ؟"
     
     this.alert.showAlert(title,
       message, 

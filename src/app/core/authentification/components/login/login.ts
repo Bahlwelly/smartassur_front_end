@@ -27,6 +27,11 @@ export class Login {
     })
   }
 
+  ngOnInit () {
+    const rmUser = localStorage.getItem('connectedUser');
+    if (rmUser) this.router.navigate(['/main']);
+  }
+
   showPassword: boolean = false;
 
   togglePassword(): void {
@@ -81,7 +86,7 @@ export class Login {
             },
             error : (err) => {
                 if (this.preferedLang === 'en') {
-              this.alert.showAlert("Error", "Something went wrong please try again later.",
+              this.alert.showAlert("Error", "Something went wrong please try again.",
                 "error",
                 true,
                 false,
@@ -89,7 +94,7 @@ export class Login {
               );
             }
             else if (this.preferedLang === 'fr') {
-              this.alert.showAlert("Erreur", "Quelque chose s’est mal passé, veuillez réessayer plus tard.",
+              this.alert.showAlert("Erreur", "Quelque chose s’est mal passé, veuillez réessayer.",
                 "error",
                 true,
                 false,
@@ -97,7 +102,7 @@ export class Login {
               );
             }
             else {
-              this.alert.showAlert("خطأ", "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا.",
+              this.alert.showAlert("خطأ", "حدث خطأ ما، يرجى المحاولة مرة أخرى .",
                 "error",
                 true,
                 false,

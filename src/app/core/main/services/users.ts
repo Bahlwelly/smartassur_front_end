@@ -8,7 +8,7 @@ import { User } from '../interfaces/user';
 })
 export class Users {
   private http = inject(HttpClient);
-  private userDetailsApi = 'http://192.168.100.80:8000/api/auth/user';
+  private userDetailsApi = 'http://192.168.100.178:8000/api/auth/user';
 
   getUserDetails (id : number) : Observable<User> {
     return this.http.get<User>(`${this.userDetailsApi}/${id}`);

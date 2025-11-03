@@ -4,10 +4,11 @@ import { ContractService } from '../../../features/contracts/service/contract-se
 import { Contract } from '../../../features/contracts/contract';
 import { Company } from '../../../features/companies/interfaces/company';
 import { ProductService } from '../../../features/products/service/product-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -35,7 +36,7 @@ export class Dashboard {
             this.uc = this.contracts.filter(c => !c.viewed && c.status === 'active').length;
             
             const today = new Date();
-            const NEARLY_EXPIRED_DAYS = 3;
+            const NEARLY_EXPIRED_DAYS = 7;
 
             this.sec = this.contracts.filter(contract => {
               const endDate = new Date(contract.end_date);
